@@ -21,3 +21,5 @@
 "Mixed" = "混合";
 "RemoveTrackingParameters" = "移除 URL 中的追踪参数";
 "NotificationsAndSounds" = "通知和声音 􀱁";
+"PasteHistory" = "粘贴历史记录";
+"PasteHistoryHelp" = "N 是最近复制的内容。设置快捷键后可直接粘贴更早的记录。";

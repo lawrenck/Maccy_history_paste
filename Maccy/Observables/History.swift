@@ -346,6 +346,14 @@ class History: ItemsContainer { // swiftlint:disable:this type_body_length
   }
 
   @MainActor
+  func pastePrevious(offset: Int) {
+    let recent = (allPinnedItems + allUnpinnedItems).sorted { $0.item.lastCopiedAt > $1.item.lastCopiedAt }
+    guard offset > 0, offset < recent.count else { return }
+    Clipboard.shared.copy(recent[offset].item, removeFormatting: Defaults[.removeFormattingByDefault])
+    Clipboard.shared.paste()
+  }
+
+  @MainActor
   func select(_ item: HistoryItemDecorator?, flags modifierFlags: NSEvent.ModifierFlags) {
     guard let item else {
       return

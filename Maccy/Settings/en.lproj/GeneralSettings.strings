@@ -20,3 +20,5 @@
 "Regex" = "Regular expressions";
 "Mixed" = "Mixed";
 "NotificationsAndSounds" = "Notifications and sounds 􀱁";
+"PasteHistory" = "Paste history";
+"PasteHistoryHelp" = "N is the most recently copied item. Set shortcuts to paste earlier items directly.";

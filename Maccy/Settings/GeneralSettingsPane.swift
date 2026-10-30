@@ -51,6 +51,21 @@ struct GeneralSettingsPane: View {
           .help(Text("PinTooltip", tableName: "GeneralSettings"))
           .accessibilityLabel(Text("Pin", tableName: "GeneralSettings"))
       }
+      Settings.Section(label: { Text("PasteHistory", tableName: "GeneralSettings") }) {
+        VStack(alignment: .leading) {
+          ForEach(1...9, id: \.self) { offset in
+            HStack {
+              Text("N-\(offset)")
+                .frame(width: 35, alignment: .leading)
+              KeyboardShortcuts.Recorder(for: .pastePrevious[offset - 1])
+                .accessibilityLabel("N-\(offset)")
+            }
+          }
+          Text("PasteHistoryHelp", tableName: "GeneralSettings")
+            .foregroundStyle(.secondary)
+            .fixedSize(horizontal: false, vertical: true)
+        }
+      }
       Settings.Section(label: { Text("Delete", tableName: "GeneralSettings") }
       ) {
         KeyboardShortcuts.Recorder(for: .delete)

@@ -109,6 +109,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     migrateUserDefaults()
     disableUnusedGlobalHotkeys()
+    for (index, name) in KeyboardShortcuts.Name.pastePrevious.enumerated() {
+      KeyboardShortcuts.onKeyDown(for: name) {
+        History.shared.pastePrevious(offset: index + 1)
+      }
+    }
 
     panel = FloatingPanel(
       contentRect: NSRect(origin: .zero, size: Defaults[.windowSize]),
